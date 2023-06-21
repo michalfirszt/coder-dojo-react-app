@@ -1,6 +1,9 @@
 import { useFetchData } from "../hooks/useFetchData"
+import { useTheme } from "../providers/ThemeProvider"
 
 export const UserPosts = ({ userId }) => {
+    const { theme: { palette } } = useTheme()
+
     const {
         data: posts,
         isLoading,
@@ -20,7 +23,7 @@ export const UserPosts = ({ userId }) => {
     }
 
     return (
-        <div>
+        <div style={{ backgroundColor: palette.background, color: palette.textColor }} >
             <div>
                 <button onClick={loadData}>
                     Load data
